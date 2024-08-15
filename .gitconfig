@@ -1,0 +1,80 @@
+[core]
+    editor = nano
+    excludesFile = /Users/kocmoc/.gitignore
+[color]
+    ui = true
+[user]
+    name = Dmitriy Panchenko
+    email = dmitriy.panchenko@gmail.com
+[push]
+    default = simple
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    cp = cherry-pick
+    ls = log --color --graph --pretty=format:"%C(yellow)%h%C(reset) %s%C(bold red)%d%C(reset) %C(green)%ad%C(reset) %C(cyan)[%an]%C(reset)" --relative-date --decorate
+    ll = log --color --pretty=format:"%C(yellow)%h%C(reset) %s%C(bold red)%d%C(reset) %C(green)%ad%C(reset) %C(cyan)[%an]%C(reset)" --relative-date --decorate --numstat
+    diff = diff --word-diff
+    dc = diff --cached
+    la = "!git config -l | grep alias | cut -c 7-"
+    cob = checkout -b
+    undo = reset HEAD~1 --mixed
+    amend = commit -a --amend
+    wipe = "!git add -A && git commit -qm 'WIPE SAVEPOINT' && git reset HEAD~1 --hard"
+    ec = config --global -e
+    lg = log --color --graph --pretty=format:"%C(yellow)%h%C(reset) %s%C(bold red)%d%C(reset) %C(green)%ad%C(reset) %C(cyan)[%an]%C(reset)" --abbrev-commit
+    report = "log --author=Panchenko --since='1 day ago' --until='now' --format='%Cgreen%ci%Creset %s%Creset'"
+    mr = "log --pretty='%h: %B' --first-parent --no-merges --reverse"
+    cleanup = "!git checkout master && git fetch -p && git branch --merged | grep -v '* ' | xargs -I {} git branch -d {}"
+    squash = "!f(){ git reset --soft HEAD~${1} && git commit --edit -m\"$(git log --format=%B --reverse HEAD..HEAD@{1})\"; };f"
+    pp = "!git pull && git push"
+[color]
+    diff = true
+    status = true
+    branch = true
+    interactive = true
+    ui = true
+
+[color "branch"]
+    current = green bold
+    local = green
+    remote = red bold
+
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+
+[color "status"]
+    added = green bold
+    changed = yellow bold
+    untracked = red
+
+[rebase]
+    autoStash = true
+	autosquash = true
+
+[stash]
+    showPatch = true
+
+[gpg]
+    program = /opt/homebrew/bin/gpg
+    format = ssh
+
+[gpg "ssh"]
+    allowedSignersFile = /Users/kocmoc/.ssh/allowed_signers
+
+[commit]
+    gpgSign = true
+	verbose = true
+[pull]
+    rebase = true
+[init]
+	defaultBranch = master
+[diff]
+	algorithm = histogram
+[url "git@github.com:"]
+	insteadOf = https://github.com/

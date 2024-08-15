@@ -1,0 +1,26 @@
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-fonts"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+
+brew "kubectl"
+brew "k9s"
+brew "wget"
+brew "pre-commit"
+brew "pulumi"
+brew "jq"
+brew "midnight-commander"
+brew "awscli"
+brew "zsh-autosuggestions"
+brew "ngrok"
+brew "direnv"
+
+cask "slack"
+cask "telegram"
+cask "iterm2"
+cask "whatsapp"
+cask "1password" # ?, bitwarden
+cask "tableplus" # ?
+cask "google-chrome"
+cask "visual-studio-code"
